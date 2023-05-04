@@ -11,10 +11,9 @@ void _start(puts_t p)
     (*pxputs)("Hello world from ELF!");
 }
 */
-
 #define NULL ((void*) 0)
 
-puts_t write_text_output = NULL;
+static puts_t write_text_output = NULL;
 // Entry
 void _start(puts_t p){
     write_text_output = p;

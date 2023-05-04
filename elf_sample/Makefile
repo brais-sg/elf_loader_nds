@@ -6,7 +6,7 @@ TARGET=elf_module.elf
 .PHONY: all
 
 all: main.c
-	$(CC) -o $(TARGET) main.c -O2 -nostdlib -pie -fPIC -mcpu=arm946e-s -marm
+	$(CC) -o $(TARGET) main.c -O2 -nostdlib -pie -fPIC -mcpu=arm946e-s -marm -shared
 
 clean:
 	rm -rf *.elf *.so $(TARGET)

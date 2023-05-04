@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
 	int modsize = ftell(elf_module);
 	fseek(elf_module, 0, SEEK_SET);
 
-	iprintf("ELF file is %d bytes, loading to RAM...\n", modsize);
+	iprintf("ELF file is %d bytes\nloading to RAM...\n", modsize); swiWaitForVBlank();
 	void* elf_ram = (void*) malloc(modsize);
 	if(!elf_ram){
 		panic("Out of memory error!");
@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
 
 	int bytes_loaded = (int) fread(elf_ram, modsize, 1, elf_module);
 	fclose(elf_module);
-	iprintf("Loaded %d bytes\n", bytes_loaded);
+	iprintf("Loaded %d bytes\n", bytes_loaded); swiWaitForVBlank();
 
 	void* handle = elf_dlmemopen(elf_ram, ELF_RTLD_DEFAULT);
 	char error = elf_dlerror(handle);
