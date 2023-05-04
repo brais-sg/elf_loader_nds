@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
 	iprintf("Loaded %d bytes\n", bytes_loaded); swiWaitForVBlank();
 
 	void* handle = elf_dlmemopen(elf_ram, ELF_RTLD_DEFAULT);
-	char error = elf_dlerror(handle);
+	const char* error = elf_dlerror(handle);
 
 	if(error){
 		elf_dlclose(handle);
